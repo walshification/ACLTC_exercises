@@ -1,30 +1,27 @@
 class Ninja
 
+  attr_accessor :name, :weapon
+
   def initialize(name, weapon)
     @name = name
     @weapon = weapon
   end
 
-  def change_name(new_name)
-    @name = new_name
-    "My name is #{@name}."
-  end
-
-  def change_weapon(new_weapon)
-    @weapon = new_weapon
-    "ha-HA!"
-  end
-
   def attack
-    if @weapon == "sword"
-      `say "SWISH!"`
-    elsif @weapon == "hammer"
-      `say "SLAM!"`
-    elsif @weapon == "dagger"
-      `say "SHANK!"`
-    elsif @weapon == "stars"
-      `say "THUD THUD THUD!"`
+    case @weapon
+      when "sword"
+        `say "SWISH!"`
+      when "hammer"
+        `say "SLAM!"`
+      when "dagger"
+        `say "SHANK!"`
+      when "stars"
+        `say "THUD THUD THUD!"`
     end
+  end
+
+  def taunt
+    `say -v deranged "Ha ha ha! You face #{name}. You face your DOOM!"`
   end
 
 end
@@ -40,9 +37,11 @@ Bob.attack
 Victoria.attack
 
 Ryu.attack
-Ryu.weapon("hammer")
+Ryu.weapon="hammer"
 Ryu.attack
-Ryu.weapon("dagger")
+Ryu.weapon = "dagger"
 Ryu.attack
-Ryu.weapon("stars")
+Ryu.weapon = "stars"
 Ryu.attack
+Ryu.name="Fernando"
+Ryu.taunt
