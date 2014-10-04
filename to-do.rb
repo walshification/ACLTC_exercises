@@ -59,7 +59,7 @@ class List
     end
     puts "The incomplete tasks are:"
     @tasks_incomplete.each do |task|
-      puts "#{task.name}, due in #{task.deadline} days"
+      puts "* #{task.name}, due in #{task.deadline} days"
     end
     puts
   end
@@ -115,7 +115,7 @@ class Task
 
   def edit_deadline(days)
     @deadline = days
-    "The #{@name} task is due in #{@deadline} days."
+    "The #{@name} task is due in #{@deadline} days.\n\n"
   end
 
 end
